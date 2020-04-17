@@ -47,65 +47,17 @@ fetch(RSS_URL_HomePage)
 		const convertData = xml2json(srcDOM);
 		return convertData;
 	}).then (data =>{
-		//console.log(data.rss.channel.title);
 		const categoryTitle = data.rss.channel.title;
 		const titleRemove = categoryTitle.slice(9);
-		console.log(data.rss.channel)
+		console.log(titleRemove)
 
-		/////////////////// CATEGORY
-		////// INDEX & ARCHIVE
-		const categoriesTemplate = document.getElementById("template_categories");
-		const categoriesCardList = document.getElementById("categories_cardList");
-		const cloneCategories = categoriesTemplate.content.cloneNode(true); 
-		///// SETTINGS
-		const settingsTemplate = document.getElementById("template_settings");
-		const settingsCardList = document.getElementById("settings_cardList");
-		const cloneSettings = settingsTemplate.content.cloneNode(true); 
+		const articleTemplate = document.getElementById("template_article");
+		const articleCardList = document.getElementById("article_cardList");
+		const clone = articleTemplate.content.cloneNode(true); 
 
-		////////////////////////////// SET DATA
-		///// TITLE - INDEX, ARCHIVE 
-		cloneCategories.querySelector(".setTitle").innerText = titleRemove;
-		cloneArticles.querySelector(".article").innerText = data.rss.channel.item[0].title;
-		///// SETTINGS
-		cloneSettings.querySelector(".categoryTitle").innerText = titleRemove;
+		clone.querySelector(".title1").innerText = titleRemove;
 
-
-
-		///////////////// BUTTON
-		const button = cloneCategories.querySelector(".dropbtn");
-		button.setAttribute("id", "button1");
-
-		document.getElementById('button1').addEventListener('click', buttonClick1 );
-
-			function buttonClick1 (){
-				document.getElementById('buttonCategory').classList.toggle("show");
-			}
-			window.onclick = function (event) {
-				if (!event.target.matches('.dropbtn')) {
-					const dropdowns = document.getElementsByClassName('dropdown-content');
-					const i;
-					for (i = 0; i < dropdowns.length; i++) {
-						const opDropdown = dropdowns[i];
-						if (opDropdown.classList.contains('show')) {
-							opDropdown.classList.remove('show');
-						}
-					}
-				}
-			}
-
-
-
-		////////////////// ARTICLES
-		const articleCardList = document.querySelector(".articles_cardList");
-		const articleTemplate = document.getElementById("template_articles");
-		const cloneArticles = articleTemplate.content.cloneNode(true);
-
-		
-
-		///////////////////////// CLONE
-		categoriesCardList.appendChild(cloneCategories);
-		articleCardList.appendChild(cloneArticles);
-		settingsCardList.appendChild(cloneSettings);
+		articleCardList.appendChild(clone);
 	});
 
 
