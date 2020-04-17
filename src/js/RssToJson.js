@@ -72,53 +72,18 @@ const RSS_URL_Health = `https://rss.nytimes.com/services/xml/rss/nyt/Health.xml`
 			const convertData = xml2json(srcDOM);
 			return convertData;
 		}).then (data =>{
-			//console.log(data.rss.channel.title);
 			const categoryTitle = data.rss.channel.title;
-			const titleRemove = categoryTitle.slice(9);
-			console.log(titleRemove)
+		const titleRemove = categoryTitle.slice(9);
+		console.log(titleRemove)
 
-			/////////////////// CATEGORY
-			const categoriesTemplate = document.getElementById("template_categories");
-			const categoriesCardList = document.getElementById("categories_cardList");
-			const cloneCategories = categoriesTemplate.content.cloneNode(true); 
+		const articleTemplate = document.getElementById("template_article");
+		const articleCardList = document.getElementById("article_cardList");
+		const clone = articleTemplate.content.cloneNode(true); 
 
+		clone.querySelector(".title1").innerText = titleRemove;
 
-			///////////////// BUTTON
-			const button = cloneCategories.querySelector(".dropbtn");
-			button.setAttribute("id", "button2");
-
-			////////////////// SET DATA
-			cloneCategories.querySelector(".setTitle").innerText = titleRemove;
-			cloneArticles.querySelector(".article").innerText = data.rss.channel.item[0].title;
-
-			document.getElementById('button2').addEventListener('click', buttonClick2 );
-
-			function buttonClick2 (){
-				document.getElementById('buttonCategory').classList.toggle("show");
-			}
-			window.onclick = function (event) {
-				if (!event.target.matches('.dropbtn')) {
-					const dropdowns = document.getElementsByClassName('dropdown-content');
-					const i;
-					for (i = 0; i < dropdowns.length; i++) {
-						const opDropdown = dropdowns[i];
-						if (opDropdown.classList.contains('show')) {
-							opDropdown.classList.remove('show');
-						}
-					}
-				}
-			}
-			
-			////////////////// ARTICLES
-			const articleCardList = document.querySelector(".articles_cardList");
-			const articleTemplate = document.getElementById("template_articles");
-			const cloneArticles = articleTemplate.content.cloneNode(true);
-			
-			
-	
-			categoriesCardList.appendChild(cloneCategories);
-			articleCardList.appendChild(cloneArticles);
-		});
+		articleCardList.appendChild(clone);
+	});
 
 /////////////////////////////// BUSINESS //////////////////////////////////////////////////
 const RSS_URL_Business = `https://rss.nytimes.com/services/xml/rss/nyt/Business.xml`;
@@ -131,49 +96,18 @@ const RSS_URL_Business = `https://rss.nytimes.com/services/xml/rss/nyt/Business.
 			const convertData = xml2json(srcDOM);
 			return convertData;
 		}).then (data =>{
-			//console.log(data.rss.channel.title);
 			const categoryTitle = data.rss.channel.title;
-			const titleRemove = categoryTitle.slice(9);
-			console.log(titleRemove)
+		const titleRemove = categoryTitle.slice(9);
+		console.log(titleRemove)
 
-			/////////////////// CATEGORY
-			const categoriesTemplate = document.getElementById("template_categories");
-			const categoriesCardList = document.getElementById("categories_cardList");
-			const cloneCategories = categoriesTemplate.content.cloneNode(true); 
+		const articleTemplate = document.getElementById("template_article");
+		const articleCardList = document.getElementById("article_cardList");
+		const clone = articleTemplate.content.cloneNode(true); 
 
-			///////////////// BUTTON
-			const button = cloneCategories.querySelector(".dropbtn");
-			button.setAttribute("id", "button3");
+		clone.querySelector(".title1").innerText = titleRemove;
 
-			document.getElementById('button3').addEventListener('click', buttonClick3 );
-
-			function buttonClick3 (){
-				document.getElementById('buttonCategory').classList.toggle("show");
-			}
-			window.onclick = function (event) {
-				if (!event.target.matches('.dropbtn')) {
-					const dropdowns = document.getElementsByClassName('dropdown-content');
-					const i;
-					for (i = 0; i < dropdowns.length; i++) {
-						const opDropdown = dropdowns[i];
-						if (opDropdown.classList.contains('show')) {
-							opDropdown.classList.remove('show');
-						}
-					}
-				}
-			}
-			
-			////////////////// ARTICLES
-			const articleCardList = document.querySelector(".articles_cardList");
-			const articleTemplate = document.getElementById("template_articles");
-			const cloneArticles = articleTemplate.content.cloneNode(true);
-			
-			cloneCategories.querySelector(".title1").innerText = titleRemove;
-			cloneArticles.querySelector(".article").innerText = data.rss.channel.item[0].title;
-	
-			categoriesCardList.appendChild(cloneCategories);
-			articleCardList.appendChild(cloneArticles);
-		});
+		articleCardList.appendChild(clone);
+	});
 
 /////////////////////////////// SPORT //////////////////////////////////////////////////
 const RSS_URL_Sport = `https://rss.nytimes.com/services/xml/rss/nyt/Sports.xml`;
@@ -186,48 +120,17 @@ fetch(RSS_URL_Sport)
 		const convertData = xml2json(srcDOM);
 		return convertData;
 	}).then (data =>{
-		//console.log(data.rss.channel.title);
 		const categoryTitle = data.rss.channel.title;
 		const titleRemove = categoryTitle.slice(9);
 		console.log(titleRemove)
 
-			/////////////////// CATEGORY
-			const categoriesTemplate = document.getElementById("template_categories");
-			const categoriesCardList = document.getElementById("categories_cardList");
-			const cloneCategories = categoriesTemplate.content.cloneNode(true); 
+		const articleTemplate = document.getElementById("template_article");
+		const articleCardList = document.getElementById("article_cardList");
+		const clone = articleTemplate.content.cloneNode(true); 
 
-			///////////////// BUTTON
-			const button = cloneCategories.querySelector(".dropbtn");
-			button.setAttribute("id", "button4");
+		clone.querySelector(".title1").innerText = titleRemove;
 
-			document.getElementById('button4').addEventListener('click', buttonClick4 );
-
-			function buttonClick4 (){
-				document.getElementById('buttonCategory').classList.toggle("show");
-			}
-			window.onclick = function (event) {
-				if (!event.target.matches('.dropbtn')) {
-					const dropdowns = document.getElementsByClassName('dropdown-content');
-					const i;
-					for (i = 0; i < dropdowns.length; i++) {
-						const opDropdown = dropdowns[i];
-						if (opDropdown.classList.contains('show')) {
-							opDropdown.classList.remove('show');
-						}
-					}
-				}
-			}
-			
-			////////////////// ARTICLES
-			const articleCardList = document.querySelector(".articles_cardList");
-			const articleTemplate = document.getElementById("template_articles");
-			const cloneArticles = articleTemplate.content.cloneNode(true);
-			
-			cloneCategories.querySelector(".title1").innerText = titleRemove;
-			cloneArticles.querySelector(".article").innerText = data.rss.channel.item[0].title;
-	
-			categoriesCardList.appendChild(cloneCategories);
-			articleCardList.appendChild(cloneArticles);
+		articleCardList.appendChild(clone);
 	});
 
 
@@ -243,48 +146,17 @@ fetch(RSS_URL_Tech)
 		const convertData = xml2json(srcDOM);
 		return convertData;
 	}).then (data =>{
-		//console.log(data.rss.channel.title);
 		const categoryTitle = data.rss.channel.title;
 		const titleRemove = categoryTitle.slice(9);
 		console.log(titleRemove)
 
-			/////////////////// CATEGORY
-			const categoriesTemplate = document.getElementById("template_categories");
-			const categoriesCardList = document.getElementById("categories_cardList");
-			const cloneCategories = categoriesTemplate.content.cloneNode(true); 
+		const articleTemplate = document.getElementById("template_article");
+		const articleCardList = document.getElementById("article_cardList");
+		const clone = articleTemplate.content.cloneNode(true); 
 
-			///////////////// BUTTON
-			const button = cloneCategories.querySelector(".dropbtn");
-			button.setAttribute("id", "button5");
+		clone.querySelector(".title1").innerText = titleRemove;
 
-			document.getElementById('button5').addEventListener('click', buttonClick5 );
-
-			function buttonClick5 (){
-				document.getElementById('buttonCategory').classList.toggle("show");
-			}
-			window.onclick = function (event) {
-				if (!event.target.matches('.dropbtn')) {
-					const dropdowns = document.getElementsByClassName('dropdown-content');
-					const i;
-					for (i = 0; i < dropdowns.length; i++) {
-						const opDropdown = dropdowns[i];
-						if (opDropdown.classList.contains('show')) {
-							opDropdown.classList.remove('show');
-						}
-					}
-				}
-			}
-			
-			////////////////// ARTICLES
-			const articleCardList = document.querySelector(".articles_cardList");
-			const articleTemplate = document.getElementById("template_articles");
-			const cloneArticles = articleTemplate.content.cloneNode(true);
-			
-			cloneCategories.querySelector(".title1").innerText = titleRemove;
-			cloneArticles.querySelector(".article").innerText = data.rss.channel.item[0].title;
-	
-			categoriesCardList.appendChild(cloneCategories);
-			articleCardList.appendChild(cloneArticles);
+		articleCardList.appendChild(clone);
 	});
 
 
@@ -299,48 +171,17 @@ fetch(RSS_URL_Science)
 		const convertData = xml2json(srcDOM);
 		return convertData;
 	}).then (data =>{
-		//console.log(data.rss.channel.title);
 		const categoryTitle = data.rss.channel.title;
 		const titleRemove = categoryTitle.slice(9);
 		console.log(titleRemove)
 
-			/////////////////// CATEGORY
-			const categoriesTemplate = document.getElementById("template_categories");
-			const categoriesCardList = document.getElementById("categories_cardList");
-			const cloneCategories = categoriesTemplate.content.cloneNode(true); 
+		const articleTemplate = document.getElementById("template_article");
+		const articleCardList = document.getElementById("article_cardList");
+		const clone = articleTemplate.content.cloneNode(true); 
 
-			///////////////// BUTTON
-			const button = cloneCategories.querySelector(".dropbtn");
-			button.setAttribute("id", "button6");
+		clone.querySelector(".title1").innerText = titleRemove;
 
-			document.getElementById('button6').addEventListener('click', buttonClick6 );
-
-			function buttonClick6 (){
-				document.getElementById('buttonCategory').classList.toggle("show");
-			}
-			window.onclick = function (event) {
-				if (!event.target.matches('.dropbtn')) {
-					const dropdowns = document.getElementsByClassName('dropdown-content');
-					const i;
-					for (i = 0; i < dropdowns.length; i++) {
-						const opDropdown = dropdowns[i];
-						if (opDropdown.classList.contains('show')) {
-							opDropdown.classList.remove('show');
-						}
-					}
-				}
-			}
-			
-			////////////////// ARTICLES
-			const articleCardList = document.querySelector(".articles_cardList");
-			const articleTemplate = document.getElementById("template_articles");
-			const cloneArticles = articleTemplate.content.cloneNode(true);
-			
-			cloneCategories.querySelector(".title1").innerText = titleRemove;
-			cloneArticles.querySelector(".article").innerText = data.rss.channel.item[0].title;
-	
-			categoriesCardList.appendChild(cloneCategories);
-			articleCardList.appendChild(cloneArticles);
+		articleCardList.appendChild(clone);
 	});
 
 
@@ -356,50 +197,19 @@ fetch(RSS_URL_World)
 		const convertData = xml2json(srcDOM);
 		return convertData;
 	}).then (data =>{
-		//console.log(data.rss.channel.title);
 		const categoryTitle = data.rss.channel.title;
 		const titleRemove = categoryTitle.slice(9);
-		console.log(data.rss.channel.item[0].title)
-		
-		/////////////////// CATEGORY
-		const categoriesTemplate = document.getElementById("template_categories");
-		const categoriesCardList = document.getElementById("categories_cardList");
-		const cloneCategories = categoriesTemplate.content.cloneNode(true); 
+		console.log(titleRemove)
 
-		///////////////// BUTTON
-		const button = cloneCategories.querySelector(".dropbtn");
-		button.setAttribute("id", "button7");
+		const articleTemplate = document.getElementById("template_article");
+		const articleCardList = document.getElementById("article_cardList");
+		const clone = articleTemplate.content.cloneNode(true); 
 
-		document.getElementById('button7').addEventListener('click', buttonClick7 );
+		clone.querySelector(".title1").innerText = titleRemove;
 
-			function buttonClick7 (){
-				document.getElementById('buttonCategory').classList.toggle("show");
-			}
-			window.onclick = function (event) {
-				if (!event.target.matches('.dropbtn')) {
-					const dropdowns = document.getElementsByClassName('dropdown-content');
-					const i;
-					for (i = 0; i < dropdowns.length; i++) {
-						const opDropdown = dropdowns[i];
-						if (opDropdown.classList.contains('show')) {
-							opDropdown.classList.remove('show');
-						}
-					}
-				}
-			}
-		
-		////////////////// ARTICLES
-		const articleCardList = document.querySelector(".articles_cardList");
-		const articleTemplate = document.getElementById("template_articles");
-		const cloneArticles = articleTemplate.content.cloneNode(true);
-		
-		cloneCategories.querySelector(".title1").innerText = titleRemove;
-		cloneArticles.querySelector(".article").innerText = data.rss.channel.item[0].title;
-
-		categoriesCardList.appendChild(cloneCategories);
-		articleCardList.appendChild(cloneArticles);
+		articleCardList.appendChild(clone);
 	});
 
-	}())
+}())
 
 });
