@@ -6,13 +6,7 @@
 		<h4 class="text-white-500">Categories</h4>
 		<div id="theme_darkLine" class="border w-35 border-white my-0 mx-auto mt-10"></div>
 		<div>
-			<div id="settings_cardList" class="mt-60 rounded-lg bg-white shadow-x mx-20">
-				<div class="flex justify-between items-center py-10 px-20">
-					<h5 class="categoryTitle uppercase font-extrabold tracking-wide">Health</h5>
-					<label>
-						<input type="checkbox">
-					</label>
-				</div>
+			<div id="article_cardList" class="mt-60 rounded-lg bg-white shadow-x mx-20">
 				<!-----------------------INSÆT TEMPLATE------------------------>
 			</div>
 		</div>
@@ -23,8 +17,13 @@
 </main>
 
 <!---------------------------LAVER TEMPLATE-------------------------->
-<template id="template_settings">
-	
+<template id="template_article">
+	<div class="flex justify-between items-center py-10 px-20">
+		<h5 class="title1 uppercase font-extrabold tracking-wide"></h5>
+		<label>
+			<input type="checkbox">
+		</label>
+	</div>
 </template>
 
 <script src="/assets/js/RssToJson.js"></script>
