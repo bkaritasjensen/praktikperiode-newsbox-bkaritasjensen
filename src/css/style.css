@@ -64,7 +64,10 @@ input:checked[type="checkbox"]:before{
   left: 30px;
 }
 
-
+/*************** DROPDOWN *********************/
+.dropdown-content {
+  display: none;
+}
 
 /******************* TEXT HEIGHT SETTINGS - THEME *******************/
 .textTransform {
@@ -108,7 +111,7 @@ html[data-theme='dark'] #nav_headerText {
 html[data-theme='dark'] #settings_cardList{
   background: #ECEFF0;
 }
-html[data-theme='dark'] p{
+html[data-theme='dark'] .title1{
   color: #D97D54;
 }
 

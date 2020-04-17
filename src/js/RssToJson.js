@@ -182,6 +182,10 @@ fetch(RSS_URL_Science)
 		clone.querySelector(".title1").innerText = titleRemove;
 
 		articleCardList.appendChild(clone);
+
+		
+		
+
 	});
 
 
